@@ -3,28 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Beer Map</title>
-    <meta name="description" content="A map of every beer I have drank since Dec 25, 2015.">
+    <title>Untappd Data Parser</title>
+    <meta name="description" content="A tool to parse and visualize your Untappd data.">
     <link rel="stylesheet" href="../stylesheet.css">
     <link rel="apple-touch-icon" sizes="180x180" href="../assets/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon-16x16.png">
     <link rel="manifest" href="../assets/site.webmanifest">
-  </head>
+</head>
 <body>
     <header class="left-align">
         <a href="/">
             <img src="../assets/home.svg" class="social-icon" alt="Home">
         </a>
     </header>
-    <main>
-        <h2 class="beermap-title">Beer Map</h2>
-        <div class="iframe-container">
-            <iframe src="https://www.google.com/maps/d/u/0/embed?mid=14_oMifjxWtQDVktJpimr6QqhuLOCuVw&ll=34.94575511134974%2C-94.16315927694296&z=4" title="Beer Map"></iframe>
+    <main style="height: calc(100vh - 60px); padding: 0; margin: 0;">
+        <div class="iframe-container" style="height: 100%;">
+            <iframe src="../untappd-data-parser/untappd.html" title="Untappd Data Parser" style="height: 100%; width: 100%;"></iframe>
         </div>
     </main>
-    <footer style="text-align: center; padding: 20px 0; margin-top: 30px; font-size: 0.9em; color: #666;">
-        Created using <a href="create.html" style="color: #007bff; text-decoration: none; font-weight: 500;">untappd-data-parser</a>
-    </footer>
 </body>
 </html>

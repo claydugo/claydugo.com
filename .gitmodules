@@ -1,0 +1,3 @@
+[submodule "untappd-data-parser"]
+	path = untappd-data-parser
+	url = https://github.com/claydugo/untappd-data-parser.git
