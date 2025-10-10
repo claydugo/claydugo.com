@@ -34,7 +34,13 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install stylelint
+        run: npm install -g stylelint stylelint-config-standard
+
       - name: Run stylelint
-        uses: actions-hub/stylelint@master
-        env:
-          PATTERN: "**/*.css"
+        run: npx stylelint "**/*.css"
