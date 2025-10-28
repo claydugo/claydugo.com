@@ -26,7 +26,8 @@
 				"recommended": true
 			},
 			"complexity": {
-				"recommended": true
+				"recommended": true,
+				"noImportantStyles": "off"
 			},
 			"performance": {
 				"recommended": true

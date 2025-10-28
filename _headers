@@ -1,0 +1,47 @@
+/*
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: geolocation=(), microphone=(), camera=()
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; frame-src https://www.google.com/maps/; font-src 'self' data:; connect-src 'self'
+  Content-Encoding: br
+
+/*.css
+  Cache-Control: public, max-age=31536000, immutable
+  Content-Encoding: br
+
+/*.js
+  Cache-Control: public, max-age=31536000, immutable
+  Content-Encoding: br
+
+/*.html
+  Cache-Control: public, max-age=3600
+  Content-Encoding: br
+
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+  Content-Encoding: br
+
+/*.webp
+  Cache-Control: public, max-age=31536000, immutable
+  Content-Encoding: br
+
+/*.png
+  Cache-Control: public, max-age=31536000, immutable
+  Content-Encoding: br
+
+/*.jpg
+  Cache-Control: public, max-age=31536000, immutable
+  Content-Encoding: br
+
+/*.jpeg
+  Cache-Control: public, max-age=31536000, immutable
+  Content-Encoding: br
+
+/*.svg
+  Cache-Control: public, max-age=31536000, immutable
+  Content-Encoding: br
+
+/*.webmanifest
+  Cache-Control: public, max-age=604800
+  Content-Encoding: br
