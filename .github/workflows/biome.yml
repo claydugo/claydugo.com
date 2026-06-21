@@ -24,7 +24,7 @@ jobs:
           node-version: '20'
 
       - name: Install linters
-        run: npm install -g @biomejs/biome stylelint stylelint-config-standard
+        run: npm install -g @biomejs/biome@2.5.0 stylelint stylelint-config-standard
 
       - name: Run Biome
         run: npx biome ci .
