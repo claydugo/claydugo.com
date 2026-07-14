@@ -1,5 +1,8 @@
 :root {
 	--primary-color: #328fa8;
+
+	/* Darker teal where white text sits on it or small text needs >=4.5:1 contrast. */
+	--primary-text-color: #21657c;
 	--hover-color: #3aabc9;
 	--background-color: #f8f9fa;
 	--text-color: #343a40;
@@ -44,7 +47,7 @@ h2 {
 	position: absolute;
 	top: -40px;
 	left: 0;
-	background: var(--primary-color);
+	background: var(--primary-text-color);
 	color: white;
 	padding: 8px 16px;
 	text-decoration: none;
@@ -112,7 +115,7 @@ footer {
 }
 
 footer a {
-	color: #007bff;
+	color: #0a58ca;
 	text-decoration: none;
 	font-weight: 500;
 }
@@ -208,7 +211,8 @@ a:link {
 	height: 100%;
 }
 
-@media (width <= 600px) {
+/* max-width (not range syntax) so Safari <= 16.3 / Chrome <= 103 still get mobile sizes. */
+@media (max-width: 600px) {
 	h1,
 	h2 {
 		font-size: 1.6rem;

@@ -7,7 +7,14 @@
 	},
 	"files": {
 		"ignoreUnknown": false,
-		"includes": ["**/*.html", "**/*.css", "**/*.json", "**/*.js", "!untappd-data-parser"],
+		"includes": [
+			"**/*.html",
+			"**/*.css",
+			"**/*.json",
+			"**/*.js",
+			"**/*.mjs",
+			"!untappd-data-parser"
+		],
 		"maxSize": 1048576
 	},
 	"formatter": {

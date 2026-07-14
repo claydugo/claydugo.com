@@ -1,0 +1,13 @@
+{
+	"name": "claydugo.com",
+	"version": "1.0.0",
+	"scripts": {
+		"lint": "biome check . && stylelint \"**/*.css\"",
+		"format": "biome check --write . && stylelint --fix \"**/*.css\""
+	},
+	"devDependencies": {
+		"@biomejs/biome": "2.5.0",
+		"stylelint": "17.14.0",
+		"stylelint-config-standard": "40.0.0"
+	}
+}

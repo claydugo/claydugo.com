@@ -4,13 +4,52 @@
 [build.processing]
   skip_processing = true
 
-[build.processing.css]
-  bundle = false
-  minify = true
+# Baseline security headers for every page. CSP is set per-path below because
+# Netlify merges duplicate headers from overlapping rules, and merged CSPs
+# enforce their intersection. Framing is controlled per-path via frame-ancestors
+# instead of a blanket X-Frame-Options, which could not be relaxed for the
+# embeddable tool pages once set on /*.
+#
+# Unmatched paths get no CSP at all — when adding a new HTML page, add a
+# [[headers]] rule for it here.
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Strict-Transport-Security = "max-age=31536000"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
 
-[build.processing.html]
-  pretty_urls = true
-  minify = true
+[[headers]]
+  for = "/"
+  [headers.values]
+    Content-Security-Policy = "default-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'"
 
-[build.processing.images]
-  compress = true
+[[headers]]
+  for = "/index.html"
+  [headers.values]
+    Content-Security-Policy = "default-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'"
+
+# Directly-viewed SVGs are documents too, so static assets get the strict policy.
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Content-Security-Policy = "default-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'"
+
+# frame-src must allow every host the embedded My Maps iframe can redirect
+# through: consent.google.com (EU consent interstitial) and accounts.google.com
+# (the /u/0/ signed-in path). No frame-ancestors: the map is an embeddable page.
+[[headers]]
+  for = "/beermap"
+  [headers.values]
+    Content-Security-Policy = "default-src 'self'; frame-src 'self' https://www.google.com https://consent.google.com https://accounts.google.com; object-src 'none'; base-uri 'self'; form-action 'self'"
+
+[[headers]]
+  for = "/beermap/*"
+  [headers.values]
+    Content-Security-Policy = "default-src 'self'; frame-src 'self' https://www.google.com https://consent.google.com https://accounts.google.com; object-src 'none'; base-uri 'self'; form-action 'self'"
+
+# /untappd-data-parser/* intentionally has no CSP rule: the page carries its own
+# meta CSP inside the submodule (the single source of truth, so a submodule bump
+# can't drift out of sync with a mirrored header here), and the tool stays
+# embeddable cross-origin, so no frame-ancestors restriction either.

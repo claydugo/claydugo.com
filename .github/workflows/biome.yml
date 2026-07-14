@@ -22,9 +22,10 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
+          cache: npm
 
-      - name: Install linters
-        run: npm install -g @biomejs/biome@2.5.0 stylelint stylelint-config-standard
+      - name: Install dependencies
+        run: npm ci
 
       - name: Run Biome
         run: npx biome ci .

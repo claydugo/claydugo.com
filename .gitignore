@@ -1,2 +1,6 @@
 *.py
+!assets/color.py
 *.br
+# Override the machine-global gitignore, which hides package.json from every repo.
+!package.json
+node_modules/
