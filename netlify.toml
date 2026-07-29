@@ -36,18 +36,18 @@
   [headers.values]
     Content-Security-Policy = "default-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'"
 
-# frame-src must allow every host the embedded My Maps iframe can redirect
-# through: consent.google.com (EU consent interstitial) and accounts.google.com
-# (the /u/0/ signed-in path). No frame-ancestors: the map is an embeddable page.
+# The map iframe loads the submodule's beermap.html, which is same-origin and
+# carries its own meta CSP for the MapLibre CDN and OpenFreeMap tiles. No
+# frame-ancestors: the map page stays embeddable.
 [[headers]]
   for = "/beermap"
   [headers.values]
-    Content-Security-Policy = "default-src 'self'; frame-src 'self' https://www.google.com https://consent.google.com https://accounts.google.com; object-src 'none'; base-uri 'self'; form-action 'self'"
+    Content-Security-Policy = "default-src 'self'; frame-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'"
 
 [[headers]]
   for = "/beermap/*"
   [headers.values]
-    Content-Security-Policy = "default-src 'self'; frame-src 'self' https://www.google.com https://consent.google.com https://accounts.google.com; object-src 'none'; base-uri 'self'; form-action 'self'"
+    Content-Security-Policy = "default-src 'self'; frame-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'"
 
 # /untappd-data-parser/* intentionally has no CSP rule: the page carries its own
 # meta CSP inside the submodule (the single source of truth, so a submodule bump
