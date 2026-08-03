@@ -49,6 +49,18 @@
   [headers.values]
     Content-Security-Policy = "default-src 'self'; frame-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'"
 
+# The stats iframe loads the submodule's beerstats.html, which is same-origin
+# and carries its own meta CSP. No frame-ancestors: the page stays embeddable.
+[[headers]]
+  for = "/beerstats"
+  [headers.values]
+    Content-Security-Policy = "default-src 'self'; frame-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'"
+
+[[headers]]
+  for = "/beerstats/*"
+  [headers.values]
+    Content-Security-Policy = "default-src 'self'; frame-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'"
+
 # /untappd-data-parser/* intentionally has no CSP rule: the page carries its own
 # meta CSP inside the submodule (the single source of truth, so a submodule bump
 # can't drift out of sync with a mirrored header here), and the tool stays
