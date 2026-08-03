@@ -13,7 +13,8 @@
 			"**/*.json",
 			"**/*.js",
 			"**/*.mjs",
-			"!untappd-data-parser"
+			"!untappd-data-parser",
+			"!beerstats/stats.json"
 		],
 		"maxSize": 1048576
 	},
