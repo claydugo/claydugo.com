@@ -27,13 +27,14 @@
 			<h1 class="beermap-title">Beer Map</h1>
 			<div class="iframe-container">
 				<iframe
-					src="../untappd-data-parser/src/untappd_parser/templates/beermap.html?data=/beermap/venues.geojson"
+					data-src="../untappd-data-parser/src/untappd_parser/templates/beermap.html?data=/beermap/venues.geojson"
 					title="Beer Map"
 					loading="lazy"
 					allowfullscreen
 				></iframe>
 			</div>
 		</main>
+		<script type="module" src="/beermap/map.mjs"></script>
 		<footer>
 			<a href="/beerstats">Beer Stats</a>
 			&middot; Created using <a href="create.html">untappd-data-parser</a>
