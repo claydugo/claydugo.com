@@ -228,6 +228,32 @@ a:link {
 		height: 25px;
 		margin: 0 6px;
 	}
+
+	body.map-page {
+		min-height: 100dvh;
+	}
+
+	.map-page main {
+		padding: 0;
+	}
+
+	.map-page .beermap-title {
+		margin: 8px 0;
+	}
+
+	.map-page .iframe-container {
+		flex: 1;
+		width: 100%;
+		height: auto;
+		border: none;
+		border-radius: 0;
+		box-shadow: none;
+	}
+
+	.map-page footer {
+		margin-top: 0;
+		padding: 12px 0;
+	}
 }
 
 @media (prefers-reduced-motion: reduce) {
